@@ -7,39 +7,53 @@ class Queue:
         self.front = None
         self.rear = None
 
+    #Add items to the back of queue
     def enqueue(self, value):
         new_node = Node(value)
+        #If queue is empty set both front and rear values to the new nodes value
         if not self.front:
             self.front = new_node
             self.rear = new_node
+        #If there are items in queue
+        #The rear is set to the new node and points to the previous rear position
         else:
             self.rear.next = new_node
             self.rear = new_node
 
+    #Remove value from front of queue
     def dequeue(self):
+        #If queue is empty return None
         if not self.front:
             return None
         removed_node = self.front
+        #Set value of front to the next value
         self.front = self.front.next
+        #If the last value from queue is removed then update rear as well
         if not self.front:
             self.rear = None
+        #Return removed value
         return removed_node.value
     
+    #Method to look at next value in queue
     def peek(self):
         if self.front:
             return self.front.value
         else:
             return None
         
+    #Method to print entire queue
     def print_queue(self):
         current = self.front
+        #If queue is empty, state it is empty
         if not current:
             print("Queue is Empty")
             return
+        #Loop to interate through queue until current.next is None
         while current:
             print(f"{current.value}")
             current = current.next
 
+#Test Cases
 my_queue = Queue()
 my_queue.enqueue("Person A")
 my_queue.enqueue("Person B")
@@ -102,3 +116,4 @@ def run_help_desk():
 
 if __name__ == "__main__":
     run_help_desk()
+

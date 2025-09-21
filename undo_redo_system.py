@@ -1,38 +1,52 @@
-# Import the Node class you created in node.py
+# Imported Node Class created in node.py
 from node import Node
 
-# Implement your Stack class here
+# Stack Class
 class Stack:
+    #Initialize
     def __init__(self):
+        #Holds value of top value
         self.top = None
 
+    #Method to add value to top of stack
     def push(self, value):
         new_node = Node(value)
+        #Sets the next node to the value of the top of the stack
         new_node.next = self.top
+        #Sets the top of the stacks value to the new node's value
         self.top = new_node
 
+    #Method to remove value from top of stack
     def pop(self):
+        #If there is no top value return none (stack is empty)
         if not self.top:
             return None
         removed_node = self.top
+        #Set top of stack value to next node
         self.top = self.top.next
+        #Returns the value of the node we just removed
         return removed_node.value
     
+    #Method to look at value at top of stack, if empty return None
     def peek(self):
         if self.top:
             return self.top.value
         else:
             return None
         
+    #Method to print entire stack
     def print_stack(self):
         current = self.top
+        #If stack is empty return it is empty
         if not current:
             print ("Stack is empty")
             return
+        #Iterate through the nodes until reaching the end (current.next becomes None)
         while current:
             print(f"{current.value}")
             current = current.next
 
+#Test Cases
 my_stack = Stack()
 my_stack.push("Page 1")
 my_stack.push("Page 2")

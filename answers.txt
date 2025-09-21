@@ -1,0 +1,25 @@
+Why is a stack the right choice for undo/redo?
+A stack is a better choice for undo/ redo because they are LIFO, Last-In, First-Out. 
+This aligns more with undo/ redo systems because they are ideal for problems
+where you may want to backtrack, pause and resume or reverse problems. 
+
+Why is a queue better suited for the help desk?
+A queue is better for the help desk scenario because it is First-In, First-Out.
+Queues are used when the first request should be handled first. In
+our example, the help desk scenario, the first customer to arrive, submit a ticket,
+or submit a ticket are the first ones to recieve help. In help desk scenarios,
+customers are helped in the order they arrive. This is to ensure both fairness 
+and timing. 
+
+
+How do your implementations differ from Python’s built-in lists?
+The Stack and Queue classes use a linked list while Python's built-in
+lists is a dynamic array. This causes differences in data structure, 
+memory and functionality. With my implementation, each node is an object
+with a vlue and pointer, they are also not stored continously, but instead
+anywhere within the memory, connected by their pointers. In a python list,
+they are continous blocks, meaning the elements are next to each other. Linked 
+lists store an extra pointer while python lists store the elements more compactly.
+Finally, for my implementation we have manual control over the nodes which leads 
+to more room for custom behaviors and for learning while having no fixed capacity.
+Python lists have more built-in operations / convenience methods. 
